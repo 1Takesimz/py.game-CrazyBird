@@ -1,7 +1,12 @@
 #Comments by Simie Korgay
-from sched import Event
 import pygame # type: ignore
 import sys
+import os
+currentDir = os.path.dirname(os.path.abspath(__file__))
+FindingInstructions = os.path.join(currentDir, "functionScripts")
+sys.path.append(FindingInstructions)
+import Instructions
+
 
 pygame.init()
 
@@ -28,6 +33,9 @@ while SessionRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             SessionRunning = False
+        elif event.type == pygame.KEYDOWN:
+            Instructions.explain("Instuctions")
+
 #further 
 
 pygame.quit()
