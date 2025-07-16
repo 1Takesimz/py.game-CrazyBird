@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CrazyBird",
+    "\\CrazyBird\\functionScripts"
   ],
+  "SelectedNode": "\\CrazyBird\\functionScripts\\Instructions.py",
   "PreviewInSolutionExplorer": false
 }

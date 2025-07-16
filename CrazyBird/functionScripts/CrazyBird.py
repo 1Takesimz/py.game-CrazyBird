@@ -1,14 +1,16 @@
 #Comments by Simie Korgay
 import pygame # type: ignore
+import logging
 import sys
 import os
-currentDir = os.path.dirname(os.path.abspath(__file__))
-FindingInstructions = os.path.join(currentDir, "functionScripts")
-sys.path.append(FindingInstructions)
-import Instructions
+try:
+    import Instructions
+except Exception as Arguement:
+    logging.exception("Error importing Instructions module. Please ensure the path is correct.")
 
-
-pygame.init()
+#Checking if pygame is initialized, if not, initialize it
+if pygame.get_init() == False:
+    pygame.init()
 
 #Setting up the screen attributes and dimmensions for menu
 SCREEN_WIDTH = 400
@@ -22,7 +24,6 @@ title = font.render("Crazy Bird",True,(255, 255, 255))
 
 #Game loop elements and functionality
 SKY_BLUE = (135, 206, 235)
-
 
 SessionRunning = True
 while SessionRunning:
