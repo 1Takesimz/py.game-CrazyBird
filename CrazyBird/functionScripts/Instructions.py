@@ -35,6 +35,7 @@ def explain(instructions):
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                InstructionRunning = False
+                if event.key == pygame.K_SPACE:
+                    InstructionRunning = False
 
 
