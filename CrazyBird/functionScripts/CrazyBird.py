@@ -6,8 +6,12 @@ import os
 try:
     import Instructions
     logging.info("Instructions module imported successfully.")
+    import GameplaySession
+    logging.info("GameplaySession module imported successfully.")
+    import ScoreBoard
+    logging.info("ScoreBoard module imported successfully.")
 except Exception as Arguement:
-    logging.exception("Error importing Instructions module. Please ensure the path is correct.")
+    logging.exception("Error importing module(s). Please ensure the path is correct.")
 
 #Checking if pygame is initialized, if not, initialize it
 if pygame.get_init() == False:
@@ -44,8 +48,8 @@ while SessionRunning:
                 logging.info("Score functionality not implemented yet.")
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                #PLACEHOLDER FOR START GAME FUNCTIONALITY
                 logging.info("Start game functionality not implemented yet.")  
+                GameplaySession.Play()
 #further 
 
 pygame.quit()
