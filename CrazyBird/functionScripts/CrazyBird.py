@@ -42,15 +42,12 @@ while SessionRunning:
             if event.key == pygame.K_i:
                 logging.info("Displaying instructions.")
                 Instructions.explain("Instuctions")
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_s:
+            elif event.key == pygame.K_s:
                 #PLACEHOLDER FOR SCORE FUNCTIONALITY
                 logging.info("Score functionality not implemented yet.")
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
+            elif event.key == pygame.K_SPACE:
                 logging.info("Start game functionality not implemented yet.")  
                 GameplaySession.Play()
 #further 
-
 pygame.quit()
 sys.exit()

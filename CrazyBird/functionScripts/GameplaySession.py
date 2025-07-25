@@ -1,3 +1,4 @@
+
 import pygame  # type: ignore   
 import os
 
@@ -19,7 +20,7 @@ def Play():
         "PauseRestart": font.render("Press R to restart", True, (255, 255, 255)),
         "PauseContinue": font.render("Press C to continue", True, (255, 255, 255))
         }
-    Score = 0
+    score = 0
     SCORE_font = pygame.font.SysFont(None, 48)
 
     clock = pygame.time.Clock()
@@ -29,13 +30,17 @@ def Play():
     game_active = True
     paused = False
 
-    bird_react = pygame.React(100, 250, 30, 50) 
+    bird_react = pygame.Rect(100, 250, 30, 50) 
 
     pipes = []
     pipe_frequency = 1500  # milliseconds
     pipe_gap = 150
     pipe_Width = 60
     last_pipe = pygame.time.get_ticks()
+
+    SCORE_surface = SCORE_font.render(f"Score: {int(score)}", True, (255, 255, 255))
+    screen.blit(SCORE_surface, (100,100))
+    pygame.display.update()
 
     while True:
         clock.tick(FPS)
@@ -46,35 +51,41 @@ def Play():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE and game_active:
                     bird_movement = -7
-                elif event.key == pygame.K_SPACE and not game_active:
+                elif event.key == pygame.K_r and not game_active:
                     game_active = True
                     pipes.clear()
                     bird_react.y = 250
                     bird_movement = 0
                     score = 0
                 elif event.key == pygame.K_p:
-                    paused = not paused
+                    paused = not paused 
+                    game_active = False
+                    
 
+        if game_active and not paused:
+            bird_movement += gravity
+            bird_react.y += bird_movement
 
-        screen.fill((0,0,0))
-        pygame.draw.rect(screen, (255, 255, 0), bird_react)
-        for pipe in pipes:
-            pygame.draw.rect(screen, (0, 255, 0), pipe)
+        if game_active:
+            screen.fill((0,0,0))
+            pygame.draw.rect(screen, (255, 255, 0), bird_react)
+            for pipe in pipes:
+                pygame.draw.rect(screen, (0, 255, 0), pipe)
 
-
-        SCORE_font.render(f"Score: {int(score)}", True, (255, 255, 255))
-        screen.blit(SCORE_font, (10,10))
-        pygame.display.update()
-
+            score_surface = SCORE_font.render(f"Score: {int(score)}", True, (255, 255, 255))
+            screen.blit(score_surface, (10, 10))
+                
         if paused:
-            screen.fill((0, 0, 0))
             y_offset = 100
             x_offset = 50
             screen.blit(pause_text["Pause"], (x_offset, y_offset))
-            for text in ["exit", "restart", "continue"]:
-                screen.blit(pause_text[f"Pause{text.capitalize()}"], (x_offset, y_offset))
-                y_offset += 50
+            y_offset += 50
+            screen.blit(pause_text["PauseExit"], (x_offset, y_offset))
+            y_offset += 50
+            screen.blit(pause_text["PauseRestart"], (x_offset, y_offset))
+            y_offset += 50
+            screen.blit(pause_text["PauseContinue"], (x_offset, y_offset))
             pygame.display.update()
-            continue
+            
                   
 
