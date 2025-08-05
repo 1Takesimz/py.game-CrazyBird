@@ -14,28 +14,32 @@ def explain(instructions):
     font = pygame.font.SysFont(None, 48)
     title =  font.render("INSTRUCTIONS", True, (255, 255, 255))
     font1 = pygame.font.SysFont(None, 38)
-    Explanation1 = font1.render("HOW TO PLAY:",True, (255, 255, 255))
-    Explanation2 = font1.render("Press SPACEBAR in order",True, (255, 255, 255))
-    Explanation3 = font1.render("manevour inbeteen incoming",True, (255, 255, 255))
-    Explanation4 = font1.render("pipes to add to your score",True, (255, 255, 255))
-    Explanation5 = font1.render("Good luck and happy flying :)",True, (255, 255, 255))
+    instructionText = {"Title": font1.render("HOW TO PLAY:",True, (255, 255, 255)),
+                       "first_line": font1.render("Press SPACEBAR in order",True, (255, 255, 255)),
+                       "second_line": font1.render("manevour inbeteen incoming",True, (255, 255, 255)),
+                       "third_line": font1.render("pipes to add to your score",True, (255, 255, 255)),
+                       "fourth_line": font1.render("Good luck and happy flying :)",True, (255, 255, 255))}
+
     font2 = pygame.font.SysFont(None, 30)
-    Explanation6 = font2.render("Return(Space)",True, (255, 255, 255))
+    returnHome = font2.render("Return(Space)",True, (255, 255, 255))
     InstructionRunning = True
     while InstructionRunning:
-        screen.fill((0, 0, 0))
-        screen.blit(title, (70, 70))
-        screen.blit(Explanation1, (20, 140))
-        screen.blit(Explanation2, (20, 170))
-        screen.blit(Explanation3, (20, 195))
-        screen.blit(Explanation4, (20, 220))
-        screen.blit(Explanation5, (15, 290))
-        screen.blit(Explanation6, (20, 550))
+        y_offset = 100
+        x_offset = 15
+        screen.blit(instructionText["Title"], (x_offset, y_offset))
+        y_offset += 50
+        screen.blit(instructionText["first_line"], (x_offset, y_offset))
+        y_offset += 50
+        screen.blit(instructionText["second_line"], (x_offset, y_offset))
+        y_offset += 50
+        screen.blit(instructionText["third_line"], (x_offset, y_offset))
+        y_offset += 50
+        screen.blit(instructionText["fourth_line"], (x_offset, y_offset))
+        y_offset += 250
+        screen.blit(returnHome, (x_offset, y_offset))
         pygame.display.update()
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     InstructionRunning = False
-
-

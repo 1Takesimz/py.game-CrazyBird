@@ -23,16 +23,25 @@ SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.display.set_caption("Crazy Bird")
 
-font = pygame.font.SysFont(None, 48)
+font = pygame.font.SysFont(None, 88)
 title = font.render("Crazy Bird",True,(255, 255, 255))
-
+fontOptions = pygame.font.SysFont(None, 28)
+menu = {"PLAY": fontOptions.render("Press (SPACE) to START", True, (255, 255, 255)),
+        "INSTUCTIONS": fontOptions.render("Press (i) to LEARN HOW TO PLAY", True, (255, 255, 255)),
+        "SCORES": fontOptions.render("Press (s) to VIEW SCORES", True, (255, 255, 255)),
+        "EXIT": fontOptions.render("Press (esc) to EXIT", True, (255, 255, 255))}
 #Game loop elements and functionality
 SKY_BLUE = (135, 206, 235)
 
 SessionRunning = True
 while SessionRunning:
     screen.fill(SKY_BLUE)
-    screen.blit(title, (100, 100))
+    screen.blit(title, (40, 30))
+    x_offset = 15
+    y_offset = 150
+    for key, value in menu.items():
+        screen.blit(value, (x_offset, y_offset))
+        y_offset += 50
     pygame.display.update()
 #Setting conditions for scenarios of the game
     for event in pygame.event.get():

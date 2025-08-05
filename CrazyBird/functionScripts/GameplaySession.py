@@ -123,15 +123,13 @@ def Play():
             if time - last_pipe > pipe_frequency:
                 pipes.extend(create_pipe())
                 last_pipe = time
-                score += 0.5
+                score += 1
 
             pipes = move_pipes(pipes)
 
             if check_collision(bird, pipes):
                 game_active = False
                 logging.info("Collision detected. Game over.")
-
-
 
         screen.fill((135, 206, 235))
 
