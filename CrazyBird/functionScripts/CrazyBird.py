@@ -57,7 +57,9 @@ while SessionRunning:
             elif event.key == pygame.K_SPACE:
                 logging.info("Start game functionality not implemented yet.")  
                 GameplaySession.Play()
+            elif event.key == pygame.K_ESCAPE:
+                logging.info("Game session terminated by user, exiting program")
+                SessionRunning = False
 
-#further 
 pygame.quit()
 sys.exit()
