@@ -156,7 +156,7 @@ def Play():
         "GAMEOVER" : font.render("GAME OVER", True, (255, 255, 255)),
         "GameOver_Exit": font.render("Press X to exit", True, (255, 255, 255)),
         "GameOver_Restart": font.render("Press R to restart", True, (255, 255, 255)),
-        "GameOver_Save_Score": font.render("Press S to save score now", True, (255, 255, 255))
+        "GameOver_Save_Score": font.render("Press S to save score and exit", True, (255, 255, 255))
         }          
             score_text = font.render(f"Final Score: {int(score)}", True, (255, 255, 255))
             screen.blit(score_text, (50, SCREEN_HEIGHT // 2 + 50))

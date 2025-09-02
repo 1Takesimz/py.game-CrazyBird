@@ -8,7 +8,7 @@ try:
     logging.info("Instructions module imported successfully.")
     import GameplaySession
     logging.info("GameplaySession module imported successfully.")
-    import ScoreBoard
+    from ScoreBoard import Show
     logging.info("ScoreBoard module imported successfully.")
 except Exception as Arguement:
     logging.exception("Error importing module(s). Please ensure the path is correct.")
@@ -52,8 +52,8 @@ while SessionRunning:
                 logging.info("Displaying instructions.")
                 Instructions.explain("Instuctions")
             elif event.key == pygame.K_s:
-                #PLACEHOLDER FOR SCORE FUNCTIONALITY
-                logging.info("Score functionality not implemented yet.")
+                logging.info("Scores being displayed.")
+                Show()
             elif event.key == pygame.K_SPACE:
                 logging.info("Start game functionality not implemented yet.")  
                 GameplaySession.Play()

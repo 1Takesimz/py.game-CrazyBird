@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\CrazyBird",
-    "\\CrazyBird\\functionScripts"
+    "\\CrazyBird\\functionScripts",
+    "\\CrazyBird\\scoreDatabase"
   ],
-  "SelectedNode": "\\CrazyBird\\functionScripts\\CrazyBird.py",
+  "SelectedNode": "\\CrazyBird\\functionScripts\\ScoreBoard.py",
   "PreviewInSolutionExplorer": false
 }

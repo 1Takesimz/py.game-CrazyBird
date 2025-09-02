@@ -22,8 +22,11 @@ def explain(instructions):
 
     font2 = pygame.font.SysFont(None, 30)
     returnHome = font2.render("Return(Space)",True, (255, 255, 255))
+
+    SKY_BLUE = (135, 206, 235)
     InstructionRunning = True
     while InstructionRunning:
+        screen.fill(SKY_BLUE)
         y_offset = 100
         x_offset = 15
         screen.blit(instructionText["Title"], (x_offset, y_offset))
